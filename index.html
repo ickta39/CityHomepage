@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="千葉県市川市・行徳の街並みやお店を紹介します。">
+    <title>行徳を歩く | 街の案内</title>
+    <style>
+        :root {
+            font-size: 16px;
+            color: #111;
+            background: #fff;
+            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        }
+
+        :root.font-small { font-size: 14px; }
+        :root.font-medium { font-size: 16px; }
+        :root.font-large { font-size: 19px; }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { min-width: 320px; line-height: 1.8; }
+        header { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1rem clamp(1.25rem, 5vw, 5rem); border-bottom: 1px solid #111; }
+        .header-title { font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; }
+        .text-size-control { display: flex; align-items: center; gap: 0.75rem; border: 0; font-size: 0.8rem; }
+        .text-size-options { display: flex; border: 1px solid #111; }
+        .text-size-options label { position: relative; min-width: 2.5rem; text-align: center; cursor: pointer; }
+        .text-size-options span { display: block; padding: 0.2rem 0.5rem; }
+        .text-size-options label + label { border-left: 1px solid #111; }
+        .text-size-options input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+        .text-size-options input:checked + span { color: #fff; background: #111; }
+        .text-size-options input:focus-visible + span { outline: 2px solid #111; outline-offset: 3px; z-index: 1; }
+        .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 2rem; padding: clamp(4rem, 12vw, 10rem) clamp(1.25rem, 10vw, 10rem) 4rem; border-bottom: 1px solid #111; }
+        .eyebrow { margin-bottom: 1rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; }
+        h1 { font-size: 8rem; line-height: 1; letter-spacing: 0; }
+        .hero-copy { max-width: 17rem; padding-bottom: 0.35rem; font-size: 1rem; }
+        .section-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; padding: 1rem clamp(1.25rem, 10vw, 10rem); border-bottom: 1px solid #111; font-size: 0.85rem; }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+        a:hover { text-decoration-thickness: 2px; }
+        .content { max-width: 78rem; margin: 0 auto; padding: 0 clamp(1.25rem, 10vw, 10rem); }
+        .story-section { display: grid; grid-template-columns: minmax(9rem, 0.7fr) minmax(0, 1.3fr); gap: 2rem; padding: 3rem 0; border-bottom: 1px solid #111; scroll-margin-top: 1rem; }
+        .section-index { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; }
+        h2 { margin-bottom: 1rem; font-size: 1.65rem; line-height: 1.4; }
+        .story-copy { max-width: 42rem; }
+        .story-copy p + p { margin-top: 1rem; }
+        .place-list { list-style: none; border-top: 1px solid #111; }
+        .place-list li { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid #111; }
+        .place-list strong { font-weight: 700; }
+        footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.25rem, 5vw, 5rem); font-size: 0.8rem; }
+
+        @media (max-width: 640px) {
+            header { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
+            .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 4rem; padding-bottom: 3rem; }
+            h1 { font-size: 5rem; }
+            .hero-copy { max-width: 25rem; }
+            .story-section { grid-template-columns: 1fr; gap: 0.75rem; }
+            .place-list li { grid-template-columns: 6.5rem 1fr; gap: 0.75rem; }
+            footer { flex-direction: column; gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p class="header-title">GYOTOKU / CITY GUIDE</p>
+        <fieldset class="text-size-control" aria-label="文字サイズ">
+            <legend>文字サイズ</legend>
+            <div class="text-size-options">
+                <label><input id="font-small" type="radio" name="font-size" value="small"><span>小</span></label>
+                <label><input id="font-medium" type="radio" name="font-size" value="medium" checked><span>中</span></label>
+                <label><input id="font-large" type="radio" name="font-size" value="large"><span>大</span></label>
+            </div>
+        </fieldset>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">千葉県市川市</p>
+                <h1 id="page-title">行徳</h1>
+            </div>
+            <p class="hero-copy">海の記憶と、日々の暮らしが交わる街。駅前から少し歩いて、行徳のいつもの風景をたどります。</p>
+        </section>
+
+        <nav class="section-nav" aria-label="ページ内ナビゲーション">
+            <a href="#about">街のこと</a>
+            <a href="#walk">歩いて見つける</a>
+            <a href="#shops">お店と食</a>
+        </nav>
+
+        <div class="content">
+            <section class="story-section" id="about">
+                <p class="section-index">01 / ABOUT</p>
+                <div class="story-copy">
+                    <h2>暮らしのそばに、街の歴史。</h2>
+                    <p>東京メトロ東西線で都心とつながる行徳。駅前のにぎわいから住宅街へ少し入ると、寺社や昔ながらの商店が日々の景色に溶け込んでいます。</p>
+                    <p>かつて塩づくりで栄えた土地の記憶を受け継ぎながら、新しいお店や多様な食文化も広がる街です。</p>
+                </div>
+            </section>
+
+            <section class="story-section" id="walk">
+                <p class="section-index">02 / WALK</p>
+                <div class="story-copy">
+                    <h2>目的を決めずに、ひと駅ぶん。</h2>
+                    <p>駅前の通りを歩けば、買い物帰りの人や食事を楽しむ人の姿。路地に入ると、静かな境内や小さな公園が見つかります。急がず歩くほど、街の表情が見えてきます。</p>
+                    <ul class="place-list">
+                        <li><strong>行徳駅前</strong><span>飲食店や日用品のお店が集まる、街歩きの出発点。</span></li>
+                        <li><strong>寺社のある路地</strong><span>街の中に点在する寺社を訪ねながら、落ち着いた道を散策。</span></li>
+                        <li><strong>行徳近郊緑地</strong><span>水辺の自然や野鳥に出会える、街の近くの緑地。</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="story-section" id="shops">
+                <p class="section-index">03 / LOCAL FOOD</p>
+                <div class="story-copy">
+                    <h2>今日の気分で選べる、街の味。</h2>
+                    <p>昔から続く食堂も、気軽に立ち寄れるカフェも。行徳には、いろいろな文化が行き交うこの街らしく、幅広いジャンルのお店があります。</p>
+                    <p>気になる暖簾をくぐってみるのも、行徳の楽しみ方のひとつ。いつもの一軒を見つけに、駅前から歩いてみませんか。</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>行徳を歩く</p>
+        <p>千葉県市川市・行徳エリア</p>
+    </footer>
+    <script src="font-size.js" defer></script>
+</body>
+</html>
